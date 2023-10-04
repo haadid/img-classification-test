@@ -20,12 +20,12 @@ def predictor(file: Image.Image):
 
     predictions = model.predict(x)
     if predictions[0] > 0.5:
-        predicted_class= 'Image classified as Pneumonia'
+        predicted_class= 'X-ray image is classified Pneumonia'
     else:
-        predicted_class= 'Image classified as Normal'
+        predicted_class= 'X-ray image is classified Normal'
 
     response = {
         "class": predicted_class,
-        "confidence": f"{predictions[0]}"
+        "score": f"{float(predictions[0]):.4f}"
     }
     return response
